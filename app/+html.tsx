@@ -12,7 +12,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <ScrollViewStyleReset />
         <style dangerouslySetInnerHTML={{
           __html: `
-            body { background-color: #C8DFC9; margin: 0; padding: 0; }
+            body { background-color: #0F1923; margin: 0; padding: 0; }
             * { box-sizing: border-box; }
           `
         }} />
