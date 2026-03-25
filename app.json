@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Play4Nature",
+    "slug": "play4nature",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "play4nature",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#E8F5E9",
+    "splash": {
+      "backgroundColor": "#E8F5E9"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.play4nature.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E8F5E9"
+      },
+      "package": "com.play4nature.app"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
