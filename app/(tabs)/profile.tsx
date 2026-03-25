@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     fontSize: 18,
     color: Colors.textPrimary,
-    marginBottom: 12,
+    marginBottom: 24,
   },
   badgesEmpty: {
     backgroundColor: Colors.sandCard,

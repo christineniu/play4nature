@@ -15,6 +15,7 @@ export default function TabLayout() {
           paddingBottom: Platform.OS === 'ios' ? 24 : Platform.OS === 'web' ? 10 : 10,
           paddingTop: 10,
         },
+        tabBarActiveBackgroundColor: 'transparent',
         tabBarActiveTintColor: Colors.xpGold,
         tabBarInactiveTintColor: 'rgba(255,255,255,0.7)',
         tabBarLabelStyle: {

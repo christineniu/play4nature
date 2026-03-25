@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -76,10 +77,13 @@ export default function HomeScreen() {
           {NEWS.map(item => (
             <TouchableOpacity key={item.id} style={styles.newsCard} activeOpacity={0.9}>
               <View style={[styles.newsImg, { backgroundColor: item.bg }]} />
-              <View style={styles.newsOverlay}>
+              <LinearGradient
+                colors={['transparent', 'rgba(0,0,0,0.5)']}
+                style={styles.newsOverlay}
+              >
                 <Text style={styles.newsTitle}>{item.title}</Text>
                 <Text style={styles.newsSource}>{item.source}</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
           ))}
         </View>
@@ -113,7 +117,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 24,
-    marginBottom: 12,
+    marginBottom: 24,
   },
   sectionTitle: { fontFamily: 'Montserrat-Bold', fontSize: 20, color: Colors.textPrimary },
   mascot: { width: 36, height: 36, borderRadius: 8, backgroundColor: Colors.sandCard },

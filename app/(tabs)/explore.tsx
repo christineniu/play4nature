@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 16,
   },
-  sheetTitle: { fontFamily: 'Montserrat-Bold', fontSize: 18, color: Colors.textPrimary, marginBottom: 14 },
+  sheetTitle: { fontFamily: 'Montserrat-Bold', fontSize: 18, color: Colors.textPrimary, marginBottom: 24 },
   pillsRow: { gap: 8, paddingBottom: 14 },
   pill: {
     flexDirection: 'row',
