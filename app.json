@@ -21,7 +21,8 @@
       "package": "com.play4nature.app"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-asset"
     ],
     "web": {
       "bundler": "metro",
