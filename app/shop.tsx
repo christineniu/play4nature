@@ -14,8 +14,10 @@ const ITEMS = [
 function ItemCard({ name, points }: { name: string; points: number }) {
   return (
     <View style={styles.card}>
-      {/* Item image placeholder */}
-      <View style={styles.cardImg} />
+      {/* Ferret plush placeholder — warm tan with darker center */}
+      <View style={styles.cardImg}>
+        <View style={styles.cardImgCenter} />
+      </View>
       <Text style={styles.cardName}>{name}</Text>
       <View style={styles.cardFooter}>
         <Text style={styles.cardPoints}>{points} points</Text>
@@ -87,8 +89,16 @@ const styles = StyleSheet.create({
   cardImg: {
     height: 100,
     borderRadius: 8,
-    backgroundColor: Colors.sandCard,
+    backgroundColor: '#E8D5B0',
     marginBottom: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cardImgCenter: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: '#C8A97A',
   },
   cardName: { fontFamily: 'Inter-SemiBold', fontSize: 14, color: Colors.textPrimary, marginBottom: 8 },
   cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },

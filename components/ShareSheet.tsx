@@ -9,18 +9,40 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { Colors } from '../constants/colors';
 
-const OPTIONS = [
-  { id: 'messages',  label: 'Messages',  icon: 'message-circle', accent: false },
-  { id: 'telegram',  label: 'Telegram',  icon: 'send',           accent: false },
-  { id: 'twitter',   label: 'Twitter',   icon: 'twitter',        accent: false },
-  { id: 'whatsapp',  label: 'Whatsapp',  icon: 'phone',          accent: false },
-  { id: 'email',     label: 'E-mail',    icon: 'mail',           accent: true  },
-] as const;
+// Row 1: Messages, Telegram, Twitter
+// Row 2: WhatsApp, E-mail
+const ROW1 = [
+  { id: 'messages', label: 'Messages', icon: 'message-circle' as const, accent: false },
+  { id: 'telegram', label: 'Telegram', icon: 'send'           as const, accent: false },
+  { id: 'twitter',  label: 'Twitter',  icon: 'twitter'        as const, accent: false },
+];
+const ROW2 = [
+  { id: 'whatsapp', label: 'Whatsapp', icon: 'message-circle' as const, accent: false },
+  { id: 'email',    label: 'E-mail',   icon: null,                       accent: true  },
+];
 
 interface Props {
   visible: boolean;
   onClose: () => void;
   onShare: () => void;
+}
+
+function OptionItem({ id, label, icon, accent, onPress }: {
+  id: string; label: string; icon: string | null; accent: boolean; onPress: () => void;
+}) {
+  const color = accent ? Colors.ctaOrange : Colors.textPrimary;
+  return (
+    <TouchableOpacity key={id} style={styles.option} onPress={onPress}>
+      <View style={styles.iconCircle}>
+        {icon ? (
+          <Feather name={icon as any} size={24} color={color} />
+        ) : (
+          <Text style={[styles.atSymbol, { color }]}>@</Text>
+        )}
+      </View>
+      <Text style={[styles.optLabel, { color }]}>{label}</Text>
+    </TouchableOpacity>
+  );
 }
 
 export default function ShareSheet({ visible, onClose, onShare }: Props) {
@@ -34,18 +56,15 @@ export default function ShareSheet({ visible, onClose, onShare }: Props) {
         <View style={styles.handle} />
         <Text style={styles.title}>Share with</Text>
 
-        <View style={styles.grid}>
-          {OPTIONS.map(opt => {
-            const color = opt.accent ? Colors.ctaOrange : Colors.textPrimary;
-            return (
-              <TouchableOpacity key={opt.id} style={styles.option} onPress={onShare}>
-                <View style={styles.iconCircle}>
-                  <Feather name={opt.icon} size={24} color={color} />
-                </View>
-                <Text style={[styles.optLabel, { color }]}>{opt.label}</Text>
-              </TouchableOpacity>
-            );
-          })}
+        <View style={styles.row}>
+          {ROW1.map(opt => (
+            <OptionItem key={opt.id} {...opt} onPress={onShare} />
+          ))}
+        </View>
+        <View style={[styles.row, { marginBottom: 24 }]}>
+          {ROW2.map(opt => (
+            <OptionItem key={opt.id} {...opt} onPress={onShare} />
+          ))}
         </View>
 
         <TouchableOpacity style={styles.shareBtn} onPress={onShare} activeOpacity={0.85}>
@@ -83,11 +102,10 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     marginBottom: 20,
   },
-  grid: {
+  row: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     gap: 16,
-    marginBottom: 24,
+    marginBottom: 16,
   },
   option: {
     alignItems: 'center',
@@ -101,6 +119,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 6,
+  },
+  atSymbol: {
+    fontSize: 22,
+    fontWeight: 'bold',
   },
   optLabel: {
     fontFamily: 'Inter-Regular',

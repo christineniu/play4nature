@@ -19,8 +19,10 @@ export default function FactOfDayCard({ onShare }: Props) {
             <Text style={styles.shareText}>Share ↑</Text>
           </TouchableOpacity>
         </View>
-        {/* Image placeholder — swap with <Image> when asset is ready */}
-        <View style={styles.imgPlaceholder} />
+        {/* Nature photo placeholder — warm squirrel-brown tones */}
+        <View style={styles.imgPlaceholder}>
+          <View style={styles.imgInner} />
+        </View>
       </View>
     </View>
   );
@@ -66,11 +68,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.white,
   },
+  // Warm tan background with darker center — suggests a nature/animal photo
   imgPlaceholder: {
     width: 80,
     height: 80,
     borderRadius: 8,
-    backgroundColor: Colors.teal,
-    opacity: 0.35,
+    backgroundColor: '#C8A97A',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imgInner: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#8B6440',
+    opacity: 0.6,
   },
 });

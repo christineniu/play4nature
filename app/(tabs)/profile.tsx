@@ -42,7 +42,9 @@ export default function ProfileScreen() {
         {/* Avatar + info */}
         <View style={styles.profileTop}>
           <View style={styles.avatarWrap}>
-            <View style={styles.avatar} />
+            <View style={styles.avatar}>
+              <View style={styles.avatarInner} />
+            </View>
             <View style={styles.levelBadge}>
               <Text style={styles.levelText}>Lvl 10</Text>
             </View>
@@ -97,9 +99,11 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: Colors.sandCard,
+    backgroundColor: '#C8DFC9',
     borderWidth: 3,
     borderColor: Colors.xpGold,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   levelBadge: {
     position: 'absolute',
@@ -135,12 +139,21 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
     alignItems: 'center',
   },
+  avatarInner: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#8B6440',
+    opacity: 0.5,
+  },
   polecatPlaceholder: {
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: Colors.progressTrack,
+    backgroundColor: '#C8A97A',
     marginBottom: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   emptyText: { fontFamily: 'Inter-Regular', fontSize: 14, color: Colors.textMuted },
 });

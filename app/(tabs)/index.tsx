@@ -15,8 +15,8 @@ const INITIAL_QUESTS: Quest[] = [
 ];
 
 const NEWS = [
-  { id: '1', title: 'Wildlife Management',   source: 'University of Maryland' },
-  { id: '2', title: 'Climate Change Impact', source: 'UMCES' },
+  { id: '1', title: 'Wildlife Management',   source: 'University of Maryland', bg: '#2D5A27' },
+  { id: '2', title: 'Climate Change Impact', source: 'UMCES',                  bg: '#5C4A1E' },
 ];
 
 export default function HomeScreen() {
@@ -75,7 +75,7 @@ export default function HomeScreen() {
         <View style={styles.newsGrid}>
           {NEWS.map(item => (
             <TouchableOpacity key={item.id} style={styles.newsCard} activeOpacity={0.9}>
-              <View style={styles.newsImg} />
+              <View style={[styles.newsImg, { backgroundColor: item.bg }]} />
               <View style={styles.newsOverlay}>
                 <Text style={styles.newsTitle}>{item.title}</Text>
                 <Text style={styles.newsSource}>{item.source}</Text>
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   headerLeft: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  avatar: { width: 40, height: 40, borderRadius: 20, backgroundColor: Colors.teal },
+  avatar: { width: 40, height: 40, borderRadius: 20, backgroundColor: '#5A8C6E', borderWidth: 2, borderColor: Colors.teal },
   welcome: { fontFamily: 'Montserrat-Bold', fontSize: 18, color: Colors.textPrimary },
   scroll: { paddingHorizontal: 16, paddingBottom: 24 },
   sectionHeader: {
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   mascot: { width: 36, height: 36, borderRadius: 8, backgroundColor: Colors.sandCard },
   newsGrid: { flexDirection: 'row', gap: 8 },
   newsCard: { flex: 1, height: 120, borderRadius: 8, overflow: 'hidden' },
-  newsImg: { flex: 1, backgroundColor: Colors.teal, opacity: 0.5 },
+  newsImg: { flex: 1 },
   newsOverlay: {
     position: 'absolute',
     bottom: 0,

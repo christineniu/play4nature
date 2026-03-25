@@ -26,6 +26,7 @@ const POSTS = [
     comments: 6,
     images: 0,
     avatarColor: Colors.xpGold,
+    avatarBg: '#C8DFC9',
   },
   {
     id: '2',
@@ -39,6 +40,7 @@ const POSTS = [
     comments: 3,
     images: 3,
     avatarColor: '#9B59B6',
+    avatarBg: '#E8D5F0',
   },
 ];
 
@@ -85,7 +87,7 @@ export default function CommunityScreen() {
           <View key={post.id}>
             <View style={styles.post}>
               <View style={styles.postHeader}>
-                <View style={[styles.avatar, { borderColor: post.avatarColor }]} />
+                <View style={[styles.avatar, { borderColor: post.avatarColor, backgroundColor: post.avatarBg }]} />
                 <View style={styles.postMeta}>
                   <Text style={styles.username}>{post.username}</Text>
                   <Text style={styles.handle}>{post.handle}</Text>

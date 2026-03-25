@@ -27,9 +27,12 @@ export default function QuestRow({ quest, onGo }: Props) {
           <View style={styles.track}>
             <View style={[styles.fill, { width: `${pct}%` }]} />
           </View>
-          <Text style={styles.fraction}>
-            {quest.progress}/{quest.total}
-          </Text>
+          <View style={styles.barFooter}>
+            <Text style={styles.fraction}>{quest.progress}/{quest.total}</Text>
+            {quest.completed && (
+              <Text style={styles.pointsEarned}>+{quest.points} points</Text>
+            )}
+          </View>
         </View>
         {quest.completed ? (
           <View style={styles.doneCircle}>
@@ -41,9 +44,6 @@ export default function QuestRow({ quest, onGo }: Props) {
           </TouchableOpacity>
         )}
       </View>
-      {quest.completed && (
-        <Text style={styles.pointsEarned}>+{quest.points} points</Text>
-      )}
     </View>
   );
 }
@@ -84,10 +84,20 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.xpGold,
     borderRadius: 100,
   },
+  barFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   fraction: {
     fontFamily: 'Inter-Regular',
     fontSize: 12,
     color: Colors.textSecondary,
+  },
+  pointsEarned: {
+    fontFamily: 'Inter-Regular',
+    fontSize: 12,
+    color: Colors.teal,
   },
   goCircle: {
     width: 40,
@@ -110,11 +120,5 @@ const styles = StyleSheet.create({
     borderColor: '#22A75B',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  pointsEarned: {
-    fontFamily: 'Inter-Regular',
-    fontSize: 12,
-    color: Colors.teal,
-    marginTop: 6,
   },
 });

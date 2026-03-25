@@ -43,9 +43,28 @@ export default function RootLayout() {
   if (!loaded) {
     return (
       <View style={{ flex: 1, backgroundColor: '#E8F5E9', justifyContent: 'center', alignItems: 'center' }}>
-        {/* Polecat placeholder — swap with <Image source={require('../assets/polecat.png')} /> */}
-        <View style={{ width: 100, height: 100, backgroundColor: '#C8DFC9', borderRadius: 50, marginBottom: 16 }} />
-        <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#005F73' }}>Play4Nature</Text>
+        {/* Polecat + leaf illustration placeholder */}
+        <View style={{ width: 120, height: 120, justifyContent: 'center', alignItems: 'center', marginBottom: 16 }}>
+          {/* Leaf shape behind */}
+          <View style={{
+            position: 'absolute', right: 0, bottom: 8,
+            width: 70, height: 90, borderRadius: 50,
+            backgroundColor: '#5A8C6E', opacity: 0.7,
+            transform: [{ rotate: '-30deg' }],
+          }} />
+          {/* Polecat body */}
+          <View style={{
+            width: 56, height: 72, borderRadius: 28,
+            backgroundColor: '#C8A97A', zIndex: 1,
+          }} />
+          {/* Polecat head */}
+          <View style={{
+            position: 'absolute', top: 4, alignSelf: 'center',
+            width: 44, height: 44, borderRadius: 22,
+            backgroundColor: '#8B6440', zIndex: 2,
+          }} />
+        </View>
+        <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#005F73', fontFamily: 'System' }}>Play4Nature</Text>
       </View>
     );
   }
