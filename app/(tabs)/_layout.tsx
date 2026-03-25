@@ -12,7 +12,7 @@ export default function TabLayout() {
           backgroundColor: Colors.deepEvergreen,
           borderTopWidth: 0,
           height: Platform.OS === 'ios' ? 88 : 72,
-          paddingBottom: Platform.OS === 'ios' ? 24 : 10,
+          paddingBottom: Platform.OS === 'ios' ? 24 : Platform.OS === 'web' ? 10 : 10,
           paddingTop: 10,
         },
         tabBarActiveTintColor: Colors.xpGold,

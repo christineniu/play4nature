@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { View, Text } from 'react-native';
+import PhoneFrame from '../components/PhoneFrame';
 import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -50,12 +51,12 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <PhoneFrame>
       <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="shop" />
       </Stack>
-    </>
+    </PhoneFrame>
   );
 }
